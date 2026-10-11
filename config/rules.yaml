@@ -8,6 +8,31 @@ analysis:
     - ai_energy_materials
   scoring_profile: risk_weighted
 
+halal_screen:
+  # Kitap kuralı değil. AAOIFI Şer'i Standart 21 + Dow Jones Islamic Market.
+  # Skordan önce uygulanır. Geçemeyen hisse listelere girmez.
+  applies_before_scoring: true
+  excluded_instruments: [interest_bearing_bond, interest_bearing_deposit, margin_loan, preferred_share_with_financial_priority]
+  business_activities_excluded:
+    - alcohol
+    - tobacco
+    - pork
+    - conventional_finance
+    - weapons_defense
+    - entertainment  # kumar, otel, sinema, pornografi, müzik
+  denominator: trailing_24m_average_market_cap
+  ratios:
+    interest_bearing_debt: { max: 0.30 }
+    interest_bearing_cash_and_securities: { max: 0.30 }
+    accounts_receivable: { max: 0.33 }
+    prohibited_income_to_total_income: { max: 0.05 }
+  missing_data: fail_closed
+  purification:
+    formula: prohibited_income_per_share_times_shares_held
+    even_if_undistributed: true
+    tax_offset_allowed: false
+    seller_before_period_end_exempt: true
+
 moonshot:
   min_years_for_score: 2
   rules: []  # henüz tanımlanmadı

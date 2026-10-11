@@ -54,6 +54,46 @@ Veri (5 yıl) → Nicel skor (kitap kuralları) → Yüksek skor? → Moat yorum
 
 Kritik metrikler (net kâr, CapEx, R&D, EPS) FMP ile çapraz kontrol edilir.
 
+## Helal eleme (kitap dışı kapı)
+
+Kullanıcı faiz geliri elde etmez ve faizli araç almaz. Bu kapı Buffett skorundan önce çalışır. Geçemeyen hisse core ve moonshot listesine girmez. Eşikler kitaba eklenmiş kriter değildir.
+
+Kaynak: AAOIFI Şer'i Standart 21 (oran ve arınma) ve ABD İslami endeks uygulaması Dow Jones Islamic Market (iş kolları, payda, alacak oranı). Eylül 2026'da endeks, borç ve nakit tavanını %33'ten %30'a indirdi; bu AAOIFI ile aynı çizgidir.
+
+Faizli tahvil, bono ve faiz getiren mevduat alınmaz. Hisse, faizle borçlanarak (marj) alınmaz. Mali öncelik taşıyan imtiyazlı hisse alınmaz.
+
+### İş kolu
+
+Ana faaliyet aşağıdakilerden biri ise elenir. Bu kalemlerden gelen gelir, toplam gelirin %5'ini aşarsa da elenir.
+
+- Alkol
+- Tütün
+- Domuz ürünleri
+- Konvansiyonel finans (faizli banka, konvansiyonel sigorta)
+- Silah ve savunma
+- Eğlence: kumar, otel, sinema, pornografi, müzik
+
+### Oranlar
+
+Payda: son 24 ayın ortalama piyasa değeri. Son doğrulanmış mali tablo. Oran ölçülemiyorsa hisse geçmez; "hesaplanamaz" işaretlenir.
+
+| Test | Tavan |
+|------|-------|
+| Faizli borç / 24 ay ortalama piyasa değeri | %30 |
+| Faizli nakit ve faiz getiren menkul kıymet / 24 ay ortalama piyasa değeri | %30 |
+| Ticari alacaklar / 24 ay ortalama piyasa değeri | %33 |
+| Haram gelir / toplam gelir | %5 |
+
+### Arınma
+
+Eşiğin altındaki faiz ve diğer haram gelir de kazanç sayılmaz. Dönem sonunda hissesi duran kişi şu tutarı ayırır ve harcamaz:
+
+```
+(şirketin haram geliri ÷ hisse sayısı) × elde tutulan hisse
+```
+
+Kâr dağıtılmamış olsa da tutar hesaplanır. Vergiye mahsup edilmez. Dönem bitmeden satan kişi bu dönem için arındırmaz.
+
 ## Çıktı (seçim C)
 
 1. Haftalık core listesi — top 10–20, skor + kısa moat notu

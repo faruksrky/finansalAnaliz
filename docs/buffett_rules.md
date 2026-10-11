@@ -244,6 +244,12 @@ Yalnızca nicel skoru yüksek **core** hisseler için çalışır. Yeni kural ic
 
 ---
 
+## Kitap dışı kapı — helal eleme
+
+Bu bölüm kitabın kuralı değildir. Kullanıcı kararıdır; ayrıntı `docs/project_decisions.md` içindedir. Buffett skorundan önce uygulanır. Geçemeyen hisse skorlanmaz.
+
+AAOIFI Şer'i Standart 21 ve Dow Jones Islamic Market: faizli borç ve faizli nakit her biri piyasa değerinin %30'unun altında, ticari alacaklar %33'ün altında, haram gelir toplam gelirin %5'inin altında. Ana faaliyet alkol, tütün, domuz, konvansiyonel finans, silah ve savunma veya kumar/eğlence ise elenir. Kalan haram gelir hisse başına ayrılıp harcanmaz.
+
 ## Henüz işlenmemiş bölümler
 
 7, 14, 16–27, 29–38, 40, 42–45, 48, 49, 51, 52, 55, 56 (ve 1–6). Kullanıcı metni paylaştıkça bu dosyaya eklenir. Kitap net eşik vermiyorsa kullanıcıya tek soru sorulur.
