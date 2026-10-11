@@ -1,0 +1,23 @@
+---
+description: Investment Bot projesinin Buffett kural rehberi ve proje kararları
+alwaysApply: true
+---
+
+# Investment Bot — çalışma kuralları
+
+Bu proje, ABD hisselerini Mary Buffett & David Clark'ın *Warren Buffett ve Finansal Tabloların Yorumlanması* kitabındaki kurallarla analiz eder.
+
+Her oturumun başında şunları oku:
+
+- `docs/buffett_rules.md` — tek resmi kural kaynağı (kitap alıntıları, kurallar, eşikler)
+- `docs/project_decisions.md` — kapsam, core/moonshot ayrımı, veri kaynağı, çıktı, açık konular
+- `config/rules.yaml` — kodun okuduğu eşik ve ağırlıklar
+
+Kurallar:
+
+- Analiz, skorlama ve yorumda **yalnızca** `docs/buffett_rules.md` içindeki maddeleri kullan. Kitapta olmayan kriter, eşik veya "Buffett tarzı" yorum ekleme.
+- Kitap net eşik vermiyorsa eşik uydurma; kullanıcıya tek, seçenekli bir soru sor.
+- Kullanıcı yeni bir bölüm paylaştığında veya bir kararı değiştirdiğinde, üç dosyayı da tutarlı biçimde güncelle.
+- Analiz penceresi 5 yıl; sektör medyanları Tech ve AI enerji + kimya/malzeme için ayrı hesaplanır.
+- Moonshot hisseler core kurallarıyla skorlanmaz; ayrı etiket ve ayrı skor kartı kullanır.
+- Kullanıcıyla Türkçe konuş.

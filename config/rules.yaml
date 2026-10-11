@@ -1,0 +1,138 @@
+# Buffett skor kartı ayarları. Açıklamalar ve kitap alıntıları: docs/buffett_rules.md
+
+analysis:
+  window_years: 5
+  market: US
+  sector_universes:
+    - tech
+    - ai_energy_materials
+  scoring_profile: risk_weighted
+
+moonshot:
+  min_years_for_score: 2
+  rules: []  # henüz tanımlanmadı
+
+negative_net_income:
+  # Pencerede en az 1 yıl zarar varsa
+  chapter_50: suspicious_not_computable
+  chapter_39: suspicious_for_that_year
+
+rules:
+  ch08_revenue_continuity:
+    metric: revenue
+    cagr_min: 0.0
+    max_down_years_tolerated: 2
+    weight: heavy
+
+  ch09_cost_of_revenue:
+    metric: cogs_to_revenue
+    method: trend_and_sector_median
+    better: lower
+    weight: heavy
+
+  ch10_gross_margin_stability:
+    metric: gross_margin
+    cagr_min: 0.0
+    max_down_years: 1
+    low_std_dev: relative_to_universe
+    sector_median: true
+    weight: heavy
+
+  ch11_12_operating_expenses:
+    metrics: [opex_to_revenue, sga_to_revenue]
+    method: trend_and_sector_median
+    better: lower
+    single_score_item: true
+    weight: heavy
+
+  ch13_rnd:
+    metric: rnd_to_revenue
+    suspicious_above: 0.15
+    rising_trend_warning: true
+    tech_exemption: false
+    weight: heavy
+
+  ch15_interest:
+    primary:
+      metric: interest_to_operating_income
+      aggregation: window_average
+      max: 0.15
+    supporting:
+      metric: interest_to_operating_expenses
+      method: trend_and_sector_median
+    rising_trend_warning: true
+    weight: heavy
+
+  ch28_ppe:
+    primary: ch50_capex
+    trend_warnings:
+      ppe_growth_above_revenue_growth: true
+      capex_growth_above_revenue_growth: true
+      capex_to_depreciation_max: 1.5  # pencere boyunca sürekli aşılırsa uyarı
+    sector_median_negative:
+      - ppe_to_total_assets
+      - capex_to_revenue
+    fixed_ppe_threshold: null
+    weight: heavy
+
+  ch39_long_term_debt:
+    metric: long_term_debt_to_net_income
+    max: 4.0
+    check: [each_year, window_average]
+    low_debt_history_positive: true
+    rising_trend_warning: true
+    weight: heavy
+
+  ch41_debt_to_equity:
+    metric: adjusted_debt_to_equity  # toplam yükümlülükler / (öz kaynak + geri alınmış paylar)
+    aggregation: window_average
+    max: 0.80
+    rising_trend_warning: true
+    non_financial_only: true
+    weight: heavy
+
+  ch46_47_roe:
+    metric: roe  # net kâr / öz kaynak
+    aggregation: window_average
+    min: 0.20
+    above_sector_median: true
+    require_both: true
+    falling_trend_warning: true
+    negative_equity:
+      with_profit_history: possible_moat
+      with_loss_history: suspicious
+    leverage_trap_with: [ch15_interest, ch39_long_term_debt, ch41_debt_to_equity]
+    weight: heavy
+
+  ch50_capex:
+    metric: capex_to_net_income
+    aggregation: window_average
+    strong_below: 0.25
+    good_below: 0.50
+    rising_trend_warning: true
+    weight: heavy
+
+  ch53_54_moat_quant:
+    metrics:
+      - eps_cagr
+      - eps_up_years
+      - pretax_earnings_yield  # vergi öncesi EPS / fiyat
+      - pretax_earnings_yield_trend
+      - bond_equivalent_value  # vergi öncesi EPS / faiz oranı
+    discount_rate_source: null  # henüz seçilmedi
+    weight: medium
+
+moat_commentary:
+  applies_to: core
+  trigger: high_quant_score
+  checklist: docs/buffett_rules.md#moat-yorum-katmanı-bölüm-5354
+
+output:
+  weekly_core_list: { top_n: [10, 20] }
+  weekly_moonshot_list: true
+  stock_card: true
+
+data_sources:
+  primary: yfinance
+  validation: fmp_free_or_starter
+  optional_upgrade: fmp_premium
