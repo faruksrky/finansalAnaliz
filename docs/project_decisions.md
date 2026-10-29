@@ -43,6 +43,8 @@ Veri (5 yıl) → Nicel skor (kitap kuralları) → Yüksek skor? → Moat yorum
 - **Sektör medyanı:** İki ayrı evren — Tech ve AI enerji + kimya/malzeme.
 - **Negatif net kâr:** 5 yıl içinde en az 1 yıl zarar varsa Bölüm 50 "hesaplanamaz / şüpheli"; Bölüm 39 o yıl için şüpheli.
 - **Eksik veri:** Halka arzı 5 yıldan yeni hisselerde mevcut tüm yıllar kullanılır ve raporda "X yıl veri" uyarısı gösterilir.
+- **Kaldıraç tuzağı (seçim B):** ROE eşiği geçip Bölüm 15, 39 ve 41 içinden iki veya üçü olumsuzsa şüpheli. Yalnız biri olumsuzsa uyarı. Bölüm 48 metni gelince gözden geçirilir.
+- **Konsolide tablo:** Gelir, kâr, Ar-Ge, CapEx, borç ve faiz konsolide finansal tablodan okunur. Bir bölümün kârı skora girmez ve konsolide ihlali silmez.
 
 ## Veri kaynağı (tasarruf paketi)
 
@@ -105,5 +107,5 @@ Kâr dağıtılmamış olsa da tutar hesaplanır. Vergiye mahsup edilmez. Dönem
 - [ ] Moonshot skor kuralları
 - [ ] Core / moonshot etiketleme yöntemi (manuel mi, otomatik mi — ör. halka arz yaşı, piyasa değeri)
 - [ ] Başlangıç ticker listesi
-- [ ] Bölüm 54 değerlemesinde faiz oranı (10 yıllık ABD tahvili mi, güncel kurumsal faiz mi)
+- [x] Bölüm 54 değerlemesinde faiz oranı: güncel kurumsal faiz (seçim A; FRED `BAMLC0A0CMEY`)
 - [ ] Kitabın kalan bölümleri; öncelik sırası: 48 (kaldıraç), 17–20 (vergi, EPS), 49 (nakit akışı), 23/27 (nakit, cari oran), 44–45/51 (birikmiş kâr, geri alım), 55–56 (al/sat — ikinci faz)

@@ -7,6 +7,7 @@ Bu dosya projenin **tek resmi kural kaynağıdır**. Analiz, skorlama ve yorum y
 Genel ayarlar (ayrıntı: `docs/project_decisions.md`):
 
 - Analiz penceresi: **5 yıl** (yıllık finansal tablolar)
+- Skor **konsolide** tablodan okunur. Kârlı bir bölüm, konsolide ihlali kapatmaz.
 - Kurallar **core** evrene uygulanır; moonshot hisselerin ayrı skor kartı vardır
 - "Sektör medyanı" her yerde iki ayrı evrende hesaplanır: **Tech** ve **AI enerji + kimya/malzeme**
 - Skor ağırlığı: **risk ağırlıklı** (cezalar baskın, moat sinyalleri orta)
@@ -161,7 +162,7 @@ Bölüm 9'dan ayrı skor kalemidir (9 = seviye, 10 = istikrar).
 - 5 yıl ort. ROE **≥ %20** **ve** sektör medyanının üstünde → olumlu (ikisi birlikte)
 - 5 yılda düşen trend → uyarı
 - Eksi öz kaynak: 5 yıl güçlü kâr geçmişi → moat olabilir; zarar geçmişi → şüpheli
-- Kaldıraç tuzağı: ROE yüksek ama Bölüm 15 / 39 / 41 kötü → şüpheli (Bölüm 48 metni gelince tamamlanacak)
+- Kaldıraç tuzağı (seçim B; iki olumsuz = şüpheli. Bölüm 48 metni gelince gözden geçirilir): ROE eşiği geçiyor ve Bölüm 15, 39, 41 içinden **iki veya üçü** olumsuz → şüpheli. Yalnız biri olumsuz → uyarı.
 
 ---
 
@@ -214,7 +215,7 @@ Sürekli rekabet üstünlüğü kazançların her sene artmasına ve işletmenin
 2. EPS yıllık artış tutarlılığı (kaç yılda arttı)
 3. Vergi öncesi kazanç getirisi = vergi öncesi EPS ÷ güncel fiyat
 4. Bu getirinin trendi
-5. Tahvil eşdeğeri değer = vergi öncesi EPS ÷ faiz oranı (oran henüz seçilmedi)
+5. Tahvil eşdeğeri değer = vergi öncesi EPS ÷ güncel kurumsal faiz (seçim A). Kitaptaki Coca-Cola örneği bu oranı kullanır (`$3,96 ÷ 0,065`). Ölçü, yatırım yapılabilir seviye ABD şirket tahvili getirisidir (FRED `BAMLC0A0CMEY`); örnekteki %6,5 sabitlenmez.
 6. Fiyat bu değerin altında mı
 
 Skor ağırlığı **orta** (risk cezalarından daha hafif).

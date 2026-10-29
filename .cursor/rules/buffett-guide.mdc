@@ -19,6 +19,7 @@ Kurallar:
 - Kitap net eşik vermiyorsa eşik uydurma; kullanıcıya tek, seçenekli bir soru sor.
 - Kullanıcı yeni bir bölüm paylaştığında veya bir kararı değiştirdiğinde, üç dosyayı da tutarlı biçimde güncelle.
 - Analiz penceresi 5 yıl; sektör medyanları Tech ve AI enerji + kimya/malzeme için ayrı hesaplanır.
+- Skor konsolide tablodan okunur. Bir bölümün kârı konsolide ihlali kapatmaz.
 - Moonshot hisseler core kurallarıyla skorlanmaz; ayrı etiket ve ayrı skor kartı kullanır.
 - Helal eleme kitap kuralı değildir; skorlamadan önce uygulanır. Eşikler `docs/project_decisions.md` ve `config/rules.yaml` içindedir. Geçemeyen hisse listelere girmez.
 - Kullanıcıyla Türkçe konuş.

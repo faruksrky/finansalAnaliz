@@ -2,6 +2,7 @@
 
 analysis:
   window_years: 5
+  statements: consolidated  # bölüm kârı skora girmez
   market: US
   sector_universes:
     - tech
@@ -127,6 +128,9 @@ rules:
       with_profit_history: possible_moat
       with_loss_history: suspicious
     leverage_trap_with: [ch15_interest, ch39_long_term_debt, ch41_debt_to_equity]
+    leverage_trap:  # seçim B; iki veya üç olumsuz = şüpheli
+      two_or_three_negative: suspicious
+      exactly_one_negative: warning
     weight: heavy
 
   ch50_capex:
@@ -144,7 +148,8 @@ rules:
       - pretax_earnings_yield  # vergi öncesi EPS / fiyat
       - pretax_earnings_yield_trend
       - bond_equivalent_value  # vergi öncesi EPS / faiz oranı
-    discount_rate_source: null  # henüz seçilmedi
+    discount_rate_source: ig_us_corporate_yield  # seçim A
+    discount_rate_series: BAMLC0A0CMEY
     weight: medium
 
 moat_commentary:
